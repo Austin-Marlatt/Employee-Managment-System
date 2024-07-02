@@ -1,33 +1,39 @@
+-- File provides data for seeding the database
+
+-- use the employees database
 use employees;
 
+-- insert data into the 'department' table, 'name' column
 INSERT INTO department
     (name)
 VALUES
-    ('Sales'),
-    ('Engineering'),
-    ('Finance'),
-    ('Legal');
+    ('Care Team'),
+    ('Administartion'),
+    ('Engineering');
 
+-- insert data into the 'role' table, 'title, salary, department_id' columns
 INSERT INTO role
     (title, salary, department_id)
 VALUES
-    ('Sales Lead', 100000, 1),
-    ('Salesperson', 80000, 1),
-    ('Lead Engineer', 150000, 2),
-    ('Software Engineer', 120000, 2),
-    ('Account Manager', 160000, 3),
-    ('Accountant', 125000, 3),
-    ('Legal Team Lead', 250000, 4),
-    ('Lawyer', 190000, 4);
+    ('Doctor', 220000, 1),
+    ('Nurse', 80000, 1),
+    ('CNA', 50000, 1),
+    ('Medical Assistant', 44000, 1),
+    ('Rad Tech', 75000, 1),
+    ('Billing', 60000, 2),
+    ('Head Engineer', 110000, 3),
+    ('Engineer', 85000, 3);
 
+-- insert data into the 'employee' table, 'first_name, last_name, role_id, manager_id' columns
 INSERT INTO employee
     (first_name, last_name, role_id, manager_id)
 VALUES
-    ('John', 'Doe', 1, NULL),
-    ('Mike', 'Chan', 2, 1),
-    ('Ashley', 'Rodriguez', 3, NULL),
-    ('Kevin', 'Tupik', 4, 3),
-    ('Kunal', 'Singh', 5, NULL),
-    ('Malia', 'Brown', 6, 5),
-    ('Sarah', 'Lourd', 7, NULL),
-    ('Tom', 'Allen', 8, 7);
+    ('Doctor', 'Mike', 1, NULL),
+    ('Sam', 'Fisher', 2, 1),
+    ('Barbra', 'McElroy', 2, 1),
+    ('Robert', 'Smith', 3, 2),
+    ('Sarah', 'Connor', 4, 2),
+    ('Megan', 'Slater', 5, NULL),
+    ('Tom', 'Riddle', 6, NULL),
+    ('Paul', 'Allen', 7, NULL);
+    ('Patrick', 'Bateman', 8, 7)
