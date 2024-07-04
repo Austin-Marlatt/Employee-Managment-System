@@ -32,7 +32,7 @@ Run the following command to download the required dependencies:
 * Run `SOURCE 'seeds.sql file location'`
 * Open a terminal at the root level and run `node index.js` * Follow the prompts to use the Employee Managment System
 
-![image](images\Screenshot 2024-07-03 175009.png)
+![image](https://github.com/Austin-Marlatt/Employee-Tracker/blob/main/images/Screenshot%202024-07-03%20175009.png)
 
 ## Questions
 
