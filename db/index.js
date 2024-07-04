@@ -7,7 +7,7 @@ const connection = require("./connection");
 class DB {
 
   constructor(connection) {
-    // storing the connection to the db for reference
+    // storing the connection to the db for future reference
     this.connection = connection;
   }
 

@@ -1,14 +1,14 @@
-// imported modules
+// This file handles the main functionality of the application
 
+// imported modules
 // Inquirer 'prompt' allows the user to interact with the CLI 
 const { prompt } = require("inquirer");
-// Allows a stylized CLI logo to be rendered using standard characters
+// Allows a stylized CLI logo to be rendered using a string as input
 const logo = require("asciiart-logo");
 // Reference to the DataBase
 const db = require("./db");
 
-// function that runs the application
-init();
+
 
 // Renders the string as a logo in the CLI
 function init() {
@@ -41,20 +41,20 @@ function starterPrompts() {
           value: "VIEW_EMPLOYEES_BY_MANAGER"
         },
         {
-          name: "Add Employee",
-          value: "ADD_EMPLOYEE"
-        },
-        {
-          name: "Remove Employee",
-          value: "REMOVE_EMPLOYEE"
-        },
-        {
           name: "Update Employee Role",
           value: "UPDATE_EMPLOYEE_ROLE"
         },
         {
           name: "Update Employee Manager",
           value: "UPDATE_EMPLOYEE_MANAGER"
+        },
+        {
+          name: "Add Employee",
+          value: "ADD_EMPLOYEE"
+        },
+        {
+          name: "Remove Employee",
+          value: "REMOVE_EMPLOYEE"
         },
         {
           name: "View All Roles",
@@ -97,17 +97,17 @@ function starterPrompts() {
       case "VIEW_EMPLOYEES":
         viewEmployees();
         break;
-      case "VIEW_EMPLOYEES_BY_DEPARTMENT":
-        viewEmployeesByDepartment();
-        break;
-      case "VIEW_EMPLOYEES_BY_MANAGER":
-        viewEmployeesByManager();
-        break;
       case "ADD_EMPLOYEE":
         addEmployee();
         break;
       case "REMOVE_EMPLOYEE":
-        removeEmployee();
+          removeEmployee();
+          break;
+      case "VIEW_EMPLOYEES_BY_MANAGER":
+          viewEmployeesByManager();
+          break;
+      case "VIEW_EMPLOYEES_BY_DEPARTMENT":
+        viewEmployeesByDepartment();
         break;
       case "UPDATE_EMPLOYEE_ROLE":
         updateEmployeeRole();
@@ -199,7 +199,7 @@ function viewEmployeesByManager() {
         {
           type: "list",
           name: "managerId",
-          message: "Which employee do you want to see direct reports for?",
+          message: "Select a Manager to view their Employees.",
           choices: managerChoices
         }
       ])
@@ -209,7 +209,7 @@ function viewEmployeesByManager() {
           let employees = rows;
           console.log("\n");
           if (employees.length === 0) {
-            console.log("The selected employee does not manage anyone.");
+            console.log("The selected Manager does not have any Employees.");
           } else {
             console.table(employees);
           }
@@ -404,7 +404,7 @@ function removeRole() {
           choices: roleChoices
         }
       ])
-      // Run the reomve role function with the chosen roles id passed in
+      // Run the remove role function with the chosen roles id passed in
         .then(res => db.removeRole(res.roleId))
         .then(() => console.log("Removed role from the database"))
         .then(() => starterPrompts())
@@ -413,7 +413,7 @@ function removeRole() {
 
 // View all deparments
 function viewDepartments() {
-  // returns all departments
+  // Returns all departments
   db.allDepartments()
     .then(([rows]) => {
       let departments = rows;
@@ -436,7 +436,7 @@ function addDepartment() {
     .then(res => {
       let name = res;
       db.createDepartment(name)
-        .then(() => console.log(`Added ${name.name} to the database`))
+        .then(() => console.log(`Added ${name.name} department to the database`))
         .then(() => starterPrompts())
     })
 }
@@ -554,3 +554,6 @@ function quit() {
   console.log("Goodbye!");
   process.exit();
 }
+
+// function that runs the application
+init();

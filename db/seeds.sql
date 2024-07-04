@@ -1,9 +1,10 @@
 -- File provides data for seeding the database
 
--- use the employees database
+-- Use the employees database
 use employees;
 
--- insert data into the 'department' table, 'name' column
+-- Insert data into the 'department' table, 'name' column
+-- Values represent individual entries following the Template declared above
 INSERT INTO department
     (name)
 VALUES
@@ -11,7 +12,8 @@ VALUES
     ('Administartion'),
     ('Engineering');
 
--- insert data into the 'role' table, 'title, salary, department_id' columns
+-- Insert data into the 'role' table, 'title, salary, department_id' columns
+-- Values represent individual entries following the Template declared above
 INSERT INTO role
     (title, salary, department_id)
 VALUES
@@ -24,7 +26,9 @@ VALUES
     ('Head Engineer', 110000, 3),
     ('Engineer', 85000, 3);
 
--- insert data into the 'employee' table, 'first_name, last_name, role_id, manager_id' columns
+-- Insert data into the 'employee' table, 'first_name, last_name, role_id, manager_id' columns
+-- Values represent individual entries following the Template declared above
+--  ex: fist_name => Doctor, last_name => Mike, role_id => 1, manager_id => NULL
 INSERT INTO employee
     (first_name, last_name, role_id, manager_id)
 VALUES
@@ -35,5 +39,5 @@ VALUES
     ('Sarah', 'Connor', 4, 2),
     ('Megan', 'Slater', 5, NULL),
     ('Tom', 'Riddle', 6, NULL),
-    ('Paul', 'Allen', 7, NULL);
-    ('Patrick', 'Bateman', 8, 7)
+    ('Paul', 'Allen', 7, NULL),
+    ('Patrick', 'Bateman', 8, 7);
