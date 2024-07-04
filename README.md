@@ -1,4 +1,4 @@
-# Employee-Tracker
+# Employee-Managment-System
 ![GitHub license](https://img.shields.io/badge/license-MIT-purple.svg)
 
 ## Description 
